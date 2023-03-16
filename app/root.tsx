@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import type { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import {
   Links,
   LiveReload,
@@ -13,6 +13,19 @@ export const meta: MetaFunction = () => ({
   title: "New Remix App",
   viewport: "width=device-width,initial-scale=1",
 });
+
+import app from "~/app.css";
+import stylesheet from "~/tailwind.css";
+
+// or include the full Satellite theme
+import satellite from 'instantsearch.css/themes/satellite.css';
+
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+  { rel: "stylesheet", href: satellite },
+  { rel: "stylesheet", href: app },
+];
 
 export default function App() {
   return (
