@@ -10,7 +10,7 @@ import {
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: "Famiclone  List",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -25,6 +25,9 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
   { rel: "stylesheet", href: satellite },
   { rel: "stylesheet", href: app },
+  {
+    rel: "icon", type: "image/png", href: "/favicon.png"
+  }
 ];
 
 export default function App() {

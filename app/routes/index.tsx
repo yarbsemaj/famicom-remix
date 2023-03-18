@@ -3,8 +3,6 @@ import algoliasearch from "algoliasearch/dist/algoliasearch-lite.esm.browser";
 import { InstantSearch, SearchBox, RefinementList, HitsPerPage, Configure, InfiniteHits } from "react-instantsearch-hooks-web";
 import { Panel } from 'react-instantsearch-dom';
 import Game from "~/components/Game";
-import Hits from "~/components/Hits";
-
 
 const searchClient = algoliasearch(
   "C9BHVM3T1K",
