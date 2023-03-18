@@ -19,6 +19,7 @@ import stylesheet from "~/tailwind.css";
 
 // or include the full Satellite theme
 import satellite from 'instantsearch.css/themes/satellite.css';
+import Header from "./components/Header";
 
 
 export const links: LinksFunction = () => [
@@ -38,6 +39,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <Header />
         <Outlet />
         <ScrollRestoration />
         <Scripts />

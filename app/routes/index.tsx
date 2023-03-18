@@ -11,26 +11,38 @@ const searchClient = algoliasearch(
 
 export default function Index() {
   return (
-      <InstantSearch searchClient={searchClient} indexName="dev_games">
-        <div className="max-w-7xl p-4 flex md:flex-row flex-col gap-4 m-auto">
-          <div>
-            <Panel header="Genre">
-              <RefinementList attribute="genre" />
-            </Panel>
-            <Panel header="Conception">
-              <RefinementList attribute="conception" />
-            </Panel>
-            <Panel header="Development">
-              <RefinementList attribute="development" />
-            </Panel>
-          </div>
-          <div>
-            <div className="pb-2">
-              <SearchBox />
-            </div>
-            <InfiniteHits hitComponent={Game}/>
-          </div>
+    <InstantSearch searchClient={searchClient} indexName="dev_games">
+      <Configure hitsPerPage={100} maxValuesPerFacet={20}/>
+      <div className="max-w-7xl p-4 md:grid grid-cols-[200px_1fr] gap-4 m-auto">
+        <div className="hidden md:block">
+          <Panel header="Genre">
+            <RefinementList attribute="genre" />
+          </Panel>
+          <Panel header="Conception">
+            <RefinementList attribute="conception" />
+          </Panel>
+          <Panel header="Development">
+            <RefinementList attribute="development" />
+          </Panel>
         </div>
-      </InstantSearch>
-      );
+        <div>
+          <div className="pb-2">
+            <SearchBox />
+            <div className="md:hidden block pt-2">
+              <Panel header="Genre">
+                <RefinementList attribute="genre" />
+              </Panel>
+              <Panel header="Conception">
+                <RefinementList attribute="conception" />
+              </Panel>
+              <Panel header="Development">
+                <RefinementList attribute="development" />
+              </Panel>
+            </div>
+          </div>
+          <InfiniteHits hitComponent={Game} />
+        </div>
+      </div>
+    </InstantSearch>
+  );
 }
